@@ -1,0 +1,10 @@
+_*
+*.swp
+*.o
+*.out
+*.key
+*.diff
+*.patch
+tags
+libtf.a
+tfrand

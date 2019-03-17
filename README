@@ -1,0 +1,43 @@
+Threefish cipher based raw PRN/noise generator.
+
+PURPOSE
+	This PRNG is shortened, 32 bit integer version of Threefish-256 block cipher.
+	It is technically a 128 bit block cipher with 256 bit key.
+
+	It's purpose is to generate fillers fast, for use in file or disk shredders.
+	It is not meant to be secure, i.e. collision/bias free, but it is good at
+	generating random noise equal to average output of /dev/urandom, yet much faster.
+
+	Typical performance on Athlon 5000+, x86-32 is about 170M/sec.
+
+	Included tfrand program generates random noise to stdout.
+
+USAGE
+	Build example:
+
+		make tfrand
+
+	Test it:
+
+		./tfrand >rng.out
+
+	Measure performance (install tfcrypt first):
+
+		./tfrand | tfcrypt -V.5 -P - /dev/null
+
+	Use libtf.a library in your code, see headers for function references:
+	tfe.h: STREAM reference.
+	tfprng.h: PRNG reference.
+
+WARNING
+	Do NOT use it as cipher! It's just a random block generator.
+	You have been warned.
+
+ORIGIN
+	This code is derived from tfcipher library.
+
+LICENSE
+	Public domain -- free to reuse and adapt.
+
+AUTHOR
+	Andrey Rys <rys@lynxlynx.ru>, 17Mar2019.
