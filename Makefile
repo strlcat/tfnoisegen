@@ -11,17 +11,17 @@ else
 override CFLAGS+=-O3
 endif
 
-default: $(OBJS) libtf.a tfrand
-all: $(OBJS) libtf.a $(PROGS)
+default: $(OBJS) libtfng.a tfrand
+all: $(OBJS) libtfng.a $(PROGS)
 
 %.o: %.c $(HDRS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-libtf.a: $(OBJS)
+libtfng.a: $(OBJS)
 	$(AR) cru $@ $^
 
-$(PROGS): %: %.o libtf.a
+$(PROGS): %: %.o libtfng.a
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 clean:
-	rm -f libtf.a $(OBJS) $(PROGOBJS) $(SUPPOBJS) $(PROGS)
+	rm -f libtfng.a $(OBJS) $(PROGOBJS) $(SUPPOBJS) $(PROGS)

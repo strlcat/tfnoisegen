@@ -21,11 +21,11 @@
 		BE_MIX(X, T, TFS_BS11); BE_MIX(Z, Y, TFS_BS12);				\
 	} while (0)
 
-void tf_encrypt_rawblk(TF_UNIT_TYPE *O, const TF_UNIT_TYPE *I, const TF_UNIT_TYPE *K)
+void tfng_encrypt_rawblk(TFNG_UNIT_TYPE *O, const TFNG_UNIT_TYPE *I, const TFNG_UNIT_TYPE *K)
 {
-	TF_UNIT_TYPE X, Y, Z, T;
-	TF_UNIT_TYPE K0, K1, K2, K3;
-	TF_UNIT_TYPE K4, T0, T1, T2;
+	TFNG_UNIT_TYPE X, Y, Z, T;
+	TFNG_UNIT_TYPE K0, K1, K2, K3;
+	TFNG_UNIT_TYPE K4, T0, T1, T2;
 
 	X = I[0]; Y = I[1]; Z = I[2]; T = I[3];
 

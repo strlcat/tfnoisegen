@@ -25,9 +25,15 @@ USAGE
 
 		./tfrand | tfcrypt -V.5 -P - /dev/null
 
-	Use libtf.a library in your code, see headers for function references:
+	Use libtfng.a library in your code, see headers for function references:
 	tfe.h: STREAM reference.
 	tfprng.h: PRNG reference.
+
+	When building together with code which uses tfcipher library, please put
+	both tfcipher and tfnoisegen code in separate locations, and do not include
+	headers which are used privately by both implementations! Only public headers
+	and libtfng.a library externals are guaranteed to be namespace clean.
+	File names and private headers definitions are mostly same.
 
 WARNING
 	Do NOT use it as cipher! It's just a random block generator.

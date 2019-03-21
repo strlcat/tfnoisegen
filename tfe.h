@@ -1,17 +1,17 @@
-#ifndef _TF_STREAM_CIPHER_DEFS
-#define _TF_STREAM_CIPHER_DEFS
+#ifndef _TFNG_STREAM_CIPHER_DEFS
+#define _TFNG_STREAM_CIPHER_DEFS
 
 #include "tfdef.h"
 
-struct tfe_stream {
-	TF_UNIT_TYPE key[TF_NR_KEY_UNITS];
-	TF_UNIT_TYPE iv[TF_NR_BLOCK_UNITS];
-	TF_BYTE_TYPE carry_block[TF_BLOCK_SIZE];
+struct tfnge_stream {
+	TFNG_UNIT_TYPE key[TFNG_NR_KEY_UNITS];
+	TFNG_UNIT_TYPE iv[TFNG_NR_BLOCK_UNITS];
+	TFNG_BYTE_TYPE carry_block[TFNG_BLOCK_SIZE];
 	size_t carry_bytes;
 };
 
-void tfe_init(struct tfe_stream *tfe, const void *key);
-void tfe_init_iv(struct tfe_stream *tfe, const void *key, const void *iv);
-void tfe_emit(void *dst, size_t szdst, struct tfe_stream *tfe);
+void tfnge_init(struct tfnge_stream *tfe, const void *key);
+void tfnge_init_iv(struct tfnge_stream *tfe, const void *key, const void *iv);
+void tfnge_emit(void *dst, size_t szdst, struct tfnge_stream *tfe);
 
 #endif

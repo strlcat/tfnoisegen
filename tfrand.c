@@ -8,7 +8,7 @@
 #define DATASIZE 65536
 
 static char data[DATASIZE];
-static char key[TF_KEY_SIZE];
+static char key[TFNG_KEY_SIZE];
 
 int main(int argc, char **argv)
 {
@@ -20,12 +20,12 @@ int main(int argc, char **argv)
 		close(fd);
 	}
 
-	tf_prng_seedkey(key);
+	tfng_prng_seedkey(key);
 	while (1) {
-		tf_prng_genrandom(data, DATASIZE);
+		tfng_prng_genrandom(data, DATASIZE);
 		if (write(1, data, DATASIZE) == -1) return 1;
 	}
-	tf_prng_seedkey(NULL);
+	tfng_prng_seedkey(NULL);
 
 	return 0;
 }
