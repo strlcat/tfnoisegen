@@ -11,11 +11,18 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include "machdefs.h"
 
+#if defined(MACHINE_64BIT)
+#define TF_UNIT_TYPE uint64_t
+#define TF_NR_BLOCK_BITS 256
+#define TF_NR_KEY_BITS 512
+#else
 #define TF_UNIT_TYPE uint32_t
-
 #define TF_NR_BLOCK_BITS 128
 #define TF_NR_KEY_BITS 256
+#endif
+
 #define TF_NR_BLOCK_UNITS 4
 #define TF_NR_KEY_UNITS 8
 

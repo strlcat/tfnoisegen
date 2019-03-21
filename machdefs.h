@@ -1,0 +1,19 @@
+#ifndef _MACHINE_DEFINITIONS_HEADER
+#define _MACHINE_DEFINITIONS_HEADER
+
+#include <stdint.h>
+#include <limits.h>
+
+#undef MACHINE_16BIT
+#undef MACHINE_32BIT
+#undef MACHINE_64BIT
+
+#if UINTPTR_MAX == UINT32_MAX
+#define MACHINE_32BIT
+#elif UINTPTR_MAX == UINT64_MAX
+#define MACHINE_64BIT
+#elif UINTPTR_MAX == UINT16_MAX
+#define MACHINE_16BIT
+#endif
+
+#endif
