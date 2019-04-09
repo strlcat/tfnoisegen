@@ -85,7 +85,7 @@ TFNG_UNIT_TYPE tfng_prng_range_r(void *sdata, TFNG_UNIT_TYPE s, TFNG_UNIT_TYPE d
 {
 	TFNG_UNIT_TYPE c = tfng_prng_random_r(sdata);
 	if (d <= s) return s;
-	return s + c / ((TFNG_UNIT_TYPE)~0 / (d - s + 1) + 1);
+	return TFNG_PRNG_RANGE(c, TFNG_UNIT_TYPE, s, d);
 }
 
 TFNG_UNIT_TYPE tfng_prng_range(TFNG_UNIT_TYPE s, TFNG_UNIT_TYPE d)
